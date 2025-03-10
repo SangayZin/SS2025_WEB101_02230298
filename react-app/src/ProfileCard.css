@@ -1,0 +1,58 @@
+.profile-card {
+  width: 600px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 10px;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: center;
+  color: black;
+}
+
+.profile-header {
+  margin-bottom: 15px;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.profile-card:hover .avatar {
+  border-color: #007bff;
+}
+
+button {
+ background-color: #4285f4;
+ color: white;
+ border: none;
+ padding: 8px 16px;
+ cursor: pointer;
+ margin: 10px 0; 
+}
+
+button:hover {
+  background-color: #3367d6;
+}
+
+.skills-section {
+  margin-top: 15px;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+}
+
+.skill-tag {
+  background-color: #e0f7fa;
+  color: #00838f;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+}
