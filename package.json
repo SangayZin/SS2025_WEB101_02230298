@@ -1,0 +1,20 @@
+{
+  "name": "ss2025_web101_02230298",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SangayZin/SS2025_WEB101_02230298.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SangayZin/SS2025_WEB101_02230298/issues"
+  },
+  "homepage": "https://github.com/SangayZin/SS2025_WEB101_02230298#readme",
+  "description": ""
+}
