@@ -29,8 +29,8 @@ A social media-inspired video feed application developed using **Next.js**, **Re
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/your-project-name.git
-cd your-project-name
+git clone https://github.com/02230298/SS2025_WEB101_02240365.git
+cd practical1-tiktok
 ```
 
 ### 2. Create Next.js App
