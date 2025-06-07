@@ -29,7 +29,7 @@ A social media-inspired video feed application developed using **Next.js**, **Re
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/02230298/SS2025_WEB101_02240365.git
+git clone https://github.com/02230298/SS2025_WEB101_02230298.git
 cd practical1-tiktok
 ```
 
