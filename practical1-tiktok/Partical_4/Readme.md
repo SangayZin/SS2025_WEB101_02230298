@@ -124,7 +124,7 @@ NEXT_PUBLIC_API_URL=http://localhost:8000/api
 
 - Added basic search functionality
 
-1️1.  Dynamic User Profile Page
+### 1️1.  Dynamic User Profile Page
 **File**: src/app/profile/[userId]/page.jsx
 
 - Created a dynamic route based on user ID
