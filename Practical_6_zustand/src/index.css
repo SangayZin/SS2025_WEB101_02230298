@@ -1,0 +1,104 @@
+/* App.css */
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+/* Box wrapper */
+.box {
+  background-color: #ffffffcc; /* semi-transparent white */
+  padding: 3rem 4rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 90%;
+  max-width: 500px;
+  margin: 2rem;
+}
+
+h1 {
+  color: #ff6fa1;
+  margin-bottom: 2rem;
+}
+
+/* Todo Input */
+input[type="text"] {
+  padding: 0.75em 1em;
+  border: 2px solid #eee;
+  border-radius: 12px;
+  width: 70%;
+  margin-right: 1rem;
+  font-size: 1em;
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #ff90b3;
+  box-shadow: 0 0 0 4px rgba(255, 144, 179, 0.2);
+}
+
+/* Todo List */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  margin: 0.5rem 0;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Stats */
+.stats {
+  margin: 1rem 0;
+  color: #666;
+  font-size: 0.9em;
+}
+
+/* Cute Button */
+button {
+  border: none;
+  border-radius: 12px;
+  padding: 0.75em 1.5em;
+  font-size: 1em;
+  font-weight: 600;
+  font-family: inherit;
+  background-color: #ff90b3;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #ff6fa1;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+button:focus,
+button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(255, 144, 179, 0.4);
+}
+
+/* Checkbox */
+input[type="checkbox"] {
+  margin-right: 1rem;
+  accent-color: #ff90b3;
+  transform: scale(1.3);
+}
