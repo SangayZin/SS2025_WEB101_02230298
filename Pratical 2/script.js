@@ -6,9 +6,9 @@ const PLACEHOLDER_API_URL = 'https://jsonplaceholder.typicode.com/posts';
 // Global state to store saved locations
 let savedLocations = [];
 
-// DOM Elements
+// DOM Elements - Runs when page loads
 document.addEventListener('DOMContentLoaded', () => {
-    // Tab navigation
+    // Tab navigation setup
     const tabs = document.querySelectorAll('.tab');
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             tabs.forEach(t => t.classList.remove('active'));
             tab.classList.add('active');
 
-            // Update active content
+            // Show corresponding content
             document.querySelectorAll('.tab-content').forEach(content => {
                 content.classList.remove('active');
             });
@@ -26,29 +26,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // GET Request - Weather data
+    // Event listeners for buttons
     document.getElementById('get-weather').addEventListener('click', getWeather);
-
-    // POST Request - Save location
     document.getElementById('save-location').addEventListener('click', saveLocation);
 
-    // Edit Modal Event Listeners
+    // Edit modal buttons
     document.getElementById('update-location').addEventListener('click', updateLocation);
     document.getElementById('cancel-edit').addEventListener('click', () => {
         document.getElementById('edit-modal').style.display = 'none';
     });
 
-    // Load initial saved locations
+    // Load saved locations when page loads
     fetchSavedLocations();
 });
 
-// Utility Functions
+// Shows API request/response information
 function displayResponseInfo(method, url, status, data) {
     const responseInfo = document.getElementById('response-info');
     responseInfo.textContent = `Method: ${method}\nURL: ${url}\nStatus: ${status}\nTimestamp: ${new Date().toLocaleString()}\n\nData: ${JSON.stringify(data, null, 2)}`;
 }
 
-// GET Request Implementation
+// GET Request - Fetches weather data
 async function getWeather() {
     const cityInput = document.getElementById('city-input');
     const city = cityInput.value.trim();
@@ -62,16 +60,19 @@ async function getWeather() {
     weatherResult.innerHTML = 'Loading...';
 
     try {
+        // Build API URL and make request
         const url = `${WEATHER_API_URL}?q=${encodeURIComponent(city)}&units=metric&appid=${WEATHER_API_KEY}`;
         const response = await fetch(url);
         const data = await response.json();
 
+        // Show request info in API tab
         displayResponseInfo('GET', url.replace(WEATHER_API_KEY, 'API_KEY_HIDDEN'), response.status, data);
 
         if (!response.ok) {
             throw new Error(data.message || 'Failed to fetch weather data');
         }
 
+        // Display weather results
         weatherResult.innerHTML = `
             <div class="weather-card">
                 <h3>${data.name}, ${data.sys.country}</h3>
@@ -83,16 +84,19 @@ async function getWeather() {
             </div>
         `;
 
+        // Quick save button - pre-fills the save form
         document.getElementById('quick-save').addEventListener('click', () => {
             document.getElementById('location-name').value = `Weather in ${data.name}`;
             document.getElementById('location-city').value = data.name;
             document.getElementById('location-country').value = data.sys.country;
             document.getElementById('location-notes').value = `Temp: ${data.main.temp}°C, Weather: ${data.weather[0].description}`;
 
+            // Switch to POST tab
             document.querySelector('.tab[data-tab="post"]').click();
         });
 
     } catch (error) {
+        // Show error if request fails
         weatherResult.innerHTML = `<div class="weather-card" style="border-left-color: #e74c3c;">
             <h3>Error</h3>
             <p>${error.message}</p>
@@ -100,17 +104,19 @@ async function getWeather() {
     }
 }
 
-// DELETE Request Implementation
+// DELETE Request - Removes a saved location
 async function deleteLocation(id) {
     if (!confirm('Are you sure you want to delete this location?')) {
         return;
     }
 
     try {
+        // Send DELETE request to API
         const response = await fetch(`${PLACEHOLDER_API_URL}/${id}`, {
             method: 'DELETE'
         });
 
+        // Show request info
         displayResponseInfo('DELETE', `${PLACEHOLDER_API_URL}/${id}`, response.status, {
             message: 'Resource deleted successfully'
         });
@@ -119,6 +125,7 @@ async function deleteLocation(id) {
             throw new Error('Failed to delete location');
         }
 
+        // Update local state and refresh display
         savedLocations = savedLocations.filter(loc => loc.id !== id);
         renderSavedLocations();
 
